@@ -1,0 +1,7 @@
+#2020 Extra Folder Protect
+Options -Indexes
+RewriteEngine on
+#Hack to make auto_prepend work with relative path, https://stackoverflow.com/questions/9045445/auto-prepend-php-file-using-htaccess-relative-to-htaccess-file
+#if it does not work, use full path
+php_value include_path ./:../:../../:../../../:../../../../
+php_value auto_prepend_file "_admin_check_requirer.php"
