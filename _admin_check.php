@@ -9,4 +9,13 @@ else {
 		require(dirname(__FILE__) . '/_extralogin_check.php');
 		die();
 	}
+	else if($_COOKIE[$EXTRA_LOGIN_COOKIE_NAME] != $EXTRA_LOGIN_COOKIE_SECRET_VALUE) {
+		//unset wrong cookie:
+		unset($_COOKIE[$EXTRA_LOGIN_COOKIE_NAME]); 
+		setcookie($EXTRA_LOGIN_COOKIE_NAME, null, -1, '/');
+
+		// die('error '. $EXTRA_LOGIN_COOKIE_SECRET_VALUE );
+		require(dirname(__FILE__) . '/_extralogin_check.php');
+		die();
+	}
 }

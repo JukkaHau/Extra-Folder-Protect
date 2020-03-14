@@ -8,7 +8,7 @@ if(isset($_POST['login']) && $_POST['login'] != '') {
 else if(isset($_POST['_extrapassword'])) {
     if(strcasecmp(trim($_POST['_extrapassword']), $EXTRA_LOGIN_PASSWORD) == 0) {
         $_extra_error = 'Password accepted';
-        setcookie($EXTRA_LOGIN_COOKIE_NAME,"tuunix",mktime (0, 0, 0, 12, 31, 2032), "/");
+        setcookie($EXTRA_LOGIN_COOKIE_NAME, $EXTRA_LOGIN_COOKIE_SECRET_VALUE, mktime (0, 0, 0, 12, 31, 2032), "/");
         header("Refresh:0");
         exit();
     }
